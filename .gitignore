@@ -1,0 +1,5 @@
+.DS_Store
+*.pdf
+*.sql
+.vscode/
+backend/target/
