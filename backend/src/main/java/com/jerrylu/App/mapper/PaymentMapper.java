@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public interface UserMapper extends BaseMapper<User> {
-    @Select("SELECT * FROM User")
-    List<User> getAllUsers();
+public interface PaymentMapper extends BaseMapper<Payment> {
+    @Select("SELECT * FROM Payment")
+    List<Payment> getAllPayments();
 }

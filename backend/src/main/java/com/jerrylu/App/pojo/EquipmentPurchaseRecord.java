@@ -16,7 +16,7 @@ import java.util.Date;
 public class EquipmentPurchaseRecord {
     @TableId
     private int purchaseID;
-    private int equipmentsID;
+    private int equipmentID;
     private int userID;
     private Date date;
 }

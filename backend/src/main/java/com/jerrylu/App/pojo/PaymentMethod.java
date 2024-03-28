@@ -10,11 +10,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName("EquipmentsRental")
-public class EquipmentsRental {
+@TableName("PaymentMethod")
+public class PaymentMethod {
     @TableId
-    private int equipmentsID;
-    private String name;
-    private int rentPrice;
-    private int rentPeriod;
+    private int methodID;
+    private String methodName;
 }
