@@ -19,3 +19,7 @@ window.addEventListener('DOMContentLoaded', function() {
 function Registerform() {
   window.location.href = 'Registerform.html'
 }
+
+function SportBooker() {
+  window.location.href = 'SportBooker.html'
+}
