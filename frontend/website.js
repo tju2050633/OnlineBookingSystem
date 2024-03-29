@@ -13,7 +13,7 @@ function changePage(pageId) {
   
 // Initially show the home section
 window.addEventListener('DOMContentLoaded', function() {
-    changePage('About');
+    changePage('Booking');
 });
 
 function Registerform() {
