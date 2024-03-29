@@ -6,5 +6,94 @@
         <script src="SportBooker.js"></script>
     </head>
     <body>
+        <h1>SportBooker</h1>
+        <form>
+            <label for="Name">Name:</label>
+            <input type="text" id="Name" name="Name">
+            <br><br>
+
+            <label for="Phone">Phone No.:</label>
+            <input type="tel" id="Phone" name="Phone">
+            <br><br>
+
+            <label for="Member">Member:</label>
+            <input type="radio" id="Member" name="Member" value="Yes">
+            <label for="Yes">Yes</label>
+            <input type="radio" id="Member" name="Member" value="No">
+            <label for="No">No</label>
+            <br><br>
+
+            <label for="Center">Choose a sport center:</label>
+            <select id="Center" name="Center" onchange="Gofacility()">
+                <option value=""></option>
+                <option value="SC1">SC1</option>
+                <option value="SC2">SC2</option>
+                <option value="SC3">SC3</option>
+                <option value="SC4">SC4</option>
+            </select>
+            <br><br>
+
+            <div id="SC" name="facility">
+                <select id = "SC1" style="display: none;" onchange="Govenue()">
+                    <option value=""></option>
+                    <option value="Table tennis table">Table tennis table</option>
+                    <option value="Badminton court">Badminton court</option>
+                    <option value="Bowling alley">Bowling alley</option>
+                    <option value="Pool table">Pool table</option>
+                </select>
+                <select id = "SC2" style="display: none;" onchange="Govenue()">
+                    <option value=""></option>
+                    <option value="Basketball court">Basketball court</option>
+                    <option value="Volleyball court">Volleyball court</option>
+                    <option value="Squash court">Squash court</option>
+                    <option value="Tennis court"> Tennis court</option>
+                </select>
+                <select id = "SC3" style="display: none;" onchange="Govenue()">
+                    <option value=""></option>
+                    <option value="Badminton court">Badminton court</option>
+                    <option value="Basketball court"> Basketball court</option>
+                    <option value="Squash court">Squash court</option>
+                    <option value="Tennis court"> Tennis court</option>
+                </select>
+                <select id = "SC4" style="display: none;" onchange="Govenue()">
+                    <option value=""></option>
+                    <option value="Table tennis table">Table tennis table</option>
+                    <option value="Volleyball court">Volleyball court</option>
+                    <option value="Bowling alley">Bowling alley</option>
+                    <option value="Pool table">Pool table</option>
+                </select>
+            <br><br>
+
+            </div id = "SC1_f">
+                <select id = "SC1_Tab" style="display: none;">
+                    <option value=""></option>
+                    <option value="Table tennis table 1">Table tennis table 1</option>
+                    <option value="Table tennis table 2">Table tennis table 2</option>
+                    <option value="Table tennis table 3">Table tennis table 3</option>
+                    <option value="Table tennis table 4">Table tennis table 4</option>
+                </select>
+                <select id = "SC1_Bac" style="display: none;">
+                    <option value=""></option>
+                    <option value="Badminton court 1">Badminton courte 1</option>
+                    <option value="Badminton court 2">Badminton court 2</option>
+                    <option value="Badminton court 3">Badminton court 3</option>
+                    <option value="Badminton court 4">Badminton court 4</option>
+                </select>
+                <select id = "SC1_Bow" style="display: none;">
+                    <option value=""></option>
+                    <option value="Bowling alley 1">Bowling alley 1</option>
+                    <option value="Bowling alley 2">Bowling alley 2</option>
+                </select>
+                <select id = "SC1_Poo" style="display: none;">
+                    <option value=""></option>
+                    <option value="Pool table 1">Pool table 1</option>
+                    <option value="Pool table 2">Pool table 2</option>
+                    <option value="Pool table 3">Pool table 3</option>
+                    <option value="Pool table 4">Pool table 4</option>
+                </select>
+            <div>
+
+            </div>
+        </form>
     </body>
 </html>
