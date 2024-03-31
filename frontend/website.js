@@ -23,3 +23,11 @@ function Registerform() {
 function SportBooker() {
   window.location.href = 'SportBooker.html'
 }
+
+function Check() {
+  window.location.href = 'Check.html'
+}
+
+function Cancel() {
+  window.location.href = 'Cancel.html'
+}

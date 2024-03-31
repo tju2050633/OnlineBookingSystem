@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="SportBooker.css" type="text/css"/>
         <script src="SportBooker.js"></script>
     </head>
+
     <body>
         <h1>SportBooker</h1>
         <form>
@@ -173,7 +174,7 @@
                         <option value=""></option>
                         <option value="Bowling alley 1">Bowling alley 1</option>
                         <option value="Bowling alley 2">Bowling alley 2</option>
-                        <option value="Bowling alley 3">Bowling alley 2</option>
+                        <option value="Bowling alley 3">Bowling alley 3</option>
                     </select>
                     <select id = "SC4 Pool table" style="display: none;">
                         <option value=""></option>
@@ -183,8 +184,109 @@
                         <option value="Pool table 4">Pool table 4</option>
                     </select>
                 </div>
-
             </div>
+            <br>
+
+            <label for = "date">Choose a date:</label>
+            <input id="date-picker" type="date"/>
+            <p id = "demo"></p>
+            <script>
+                const datePicker = document.getElementById("date-picker");
+                datePicker.min = getDate();
+                datePicker.max = getDate(14);
+                function getDate(days) {
+                    let date;
+                    if (days !== undefined) {
+                        date = new Date(Date.now() + days * 24 * 60 * 60 * 1000);
+                    } else {
+                        date = new Date();
+                    }
+                    const offset = date.getTimezoneOffset();
+                    date = new Date(date.getTime() - (offset*60*1000));
+                    return date.toISOString().split("T")[0];
+                }
+            </script>
+
+            <label for = "date">Choose a time:</label>
+            <div id="timetable" class="time">
+                <input type="checkbox" id="9:00-9:30">
+                <label for="9:00-9:30">9:00 - 9:30</label>
+                <input type="checkbox" id="9:30-10:00">
+                <label for="9:30-10:00">9:30-10:00</label>
+                <input type="checkbox" id="10:00-10:30">
+                <label for="10:00-10:30">10:00-10:30</label>
+                <input type="checkbox" id="10:30-11:00">
+                <label for="10:30-11:00">10:30-11:00</label>
+                <input type="checkbox" id="11:00-11:30">
+                <label for="11:00-11:30">11:00-11:30</label>
+                <input type="checkbox" id="11:30-12:00">
+                <label for="11:30-12:00">11:30-12:00</label>
+                <input type="checkbox" id="12:00-12:30">
+                <label for="12:00-12:30">12:00-12:30</label>
+                <input type="checkbox" id="12:30-13:00">
+                <label for="12:30-13:00">12:30-13:00</label>
+                <input type="checkbox" id="13:00-13:30">
+                <label for="13:00-13:30">13:00-13:30</label>
+                <input type="checkbox" id="13:30-14:00">
+                <label for="13:30-14:00">13:30-14:00</label>
+                <input type="checkbox" id="14:00-14:30">
+                <label for="14:00-14:30">14:00-14:30</label>
+                <input type="checkbox" id="14:30-15:00">
+                <label for="14:30-15:00">14:30-15:00</label>
+                <input type="checkbox" id="15:00-15:30">
+                <label for="15:00-15:30">15:00-15:30</label>
+                <input type="checkbox" id="15:30-16:00">
+                <label for="15:30-16:00">15:30-16:00</label>
+                <input type="checkbox" id="16:00-16:30">
+                <label for="16:00-16:30">16:00-16:30</label>
+                <input type="checkbox" id="16:30-17:00">
+                <label for="16:30-17:00">16:30-17:00</label>
+                <input type="checkbox" id="17:00-17:30">
+                <label for="17:00-17:30">17:00-17:30</label>
+                <input type="checkbox" id="17:30-18:00">
+                <label for="17:30-18:00">17:30-18:00</label>
+                <input type="checkbox" id="18:00-18:30">
+                <label for="18:00-18:30">18:00-18:30</label>
+                <input type="checkbox" id="18:30-19:00">
+                <label for="18:30-19:00">18:30-19:00</label>
+                <input type="checkbox" id="19:00-19:30">
+                <label for="19:00-19:30">19:00-19:30</label>
+                <input type="checkbox" id="19:30-20:00">
+                <label for="19:30-20:00">19:30-20:00</label>
+                <input type="checkbox" id="20:00-20:30">
+                <label for="20:00-20:30">20:00-20:30</label>
+                <input type="checkbox" id="20:30-21:00">
+                <label for="20:30-21:00">20:30-21:00</label>
+                <input type="checkbox" id="21:00-21:30">
+                <label for="21:00-21:30">21:00-21:30</label>
+                <input type="checkbox" id="21:30-22:00">
+                <label for="21:30-22:00">21:00-22:00</label>
+                <input type="checkbox" id="22:00-22:30">
+                <label for="22:00-22:30">22:00-22:30</label>
+                <input type="checkbox" id="22:30-23:00">
+                <label for="23:30-23:00">23:00-23:00</label>
+            </div>
+            <br>
+
+            <label for="Rent Equipment">Do you need to rent equipment?</label>
+            <input type="radio" id="Rent Equipment" name="Rent Equipment" value="Yes">
+            <label for="Yes">Yes</label>
+            <input type="radio" id="Rent Equipment" name="Rent Equipment" value="No">
+            <label for="No">No</label>
+            <br><br>
+            <label for = "Pay">Please select a way to pay</label>
+            <input type="radio" id = "Pay" name="Pay" value="Cash">
+            <label for="Cash">Cash</label>
+            <input type="radio" id = "Pay" name="Pay" value="WeChat Pay">
+            <label for="WeChat Pay">WeChat Pay</label>
+            <input type="radio" id = "Pay" name="Pay" value=" AlipayHK">
+            <label for=" AlipayHK"> AlipayHK</label>
+            <input type="radio" id = "Pay" name="Pay" value="FPS">
+            <label for="FPS">FPS</label>
+            <input type="radio" id = "Pay" name="Pay" value="Credit card">
+            <label for="Credit card">Credit card</label>
+            <br><br>
+            <input type="button" value="submit" onclick="Payment()">
         </form>
     </body>
 </html>

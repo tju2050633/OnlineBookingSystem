@@ -32,3 +32,7 @@ function Govenue() {
     }
   }
 }
+
+function Payment() {
+  window.location.href = 'Payment.html'
+}
