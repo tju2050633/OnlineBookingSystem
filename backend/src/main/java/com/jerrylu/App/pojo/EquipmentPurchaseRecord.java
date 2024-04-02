@@ -15,8 +15,8 @@ import java.util.Date;
 @TableName("EquipmentPurchaseRecord")
 public class EquipmentPurchaseRecord {
     @TableId
-    private int purchaseID;
-    private int equipmentID;
-    private int userID;
+    private Integer purchaseID;
+    private Integer equipmentID;
+    private Integer userID;
     private Date date;
 }

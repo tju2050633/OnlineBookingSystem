@@ -13,9 +13,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @TableName("CourtCategory")
 public class CourtCategory {
     @TableId
-    private int categoryID;
+    private Integer categoryID;
     private String categoryName;
     private double weekDayPrice;
     private double weekendPrice;
-    private int bookPeriod;
+    private Integer bookPeriod;
 }

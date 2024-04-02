@@ -15,8 +15,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @TableName("User")
 public class User {
     @TableId
-    private int userID;
-    private int membershipID;
+    private Integer userID;
+    private Integer membershipID;
     private String name;
     private String password;
     private String gender;

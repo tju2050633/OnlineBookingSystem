@@ -13,7 +13,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @TableName("EquipmentPurchase")
 public class EquipmentPurchase {
     @TableId
-    private int equipmentID;
+    private Integer equipmentID;
     private String name;
-    private int price;
+    private Integer price;
 }

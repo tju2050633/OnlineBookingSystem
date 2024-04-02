@@ -13,6 +13,6 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @TableName("PaymentMethod")
 public class PaymentMethod {
     @TableId
-    private int methodID;
+    private Integer methodID;
     private String methodName;
 }

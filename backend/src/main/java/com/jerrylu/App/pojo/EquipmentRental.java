@@ -13,8 +13,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @TableName("EquipmentRental")
 public class EquipmentRental {
     @TableId
-    private int equipmentID;
+    private Integer equipmentID;
     private String name;
-    private int rentPrice;
-    private int rentPeriod;
+    private Integer rentPrice;
+    private Integer rentPeriod;
 }

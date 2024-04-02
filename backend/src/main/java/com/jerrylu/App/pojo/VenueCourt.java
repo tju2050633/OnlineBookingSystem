@@ -13,8 +13,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @TableName("VenueCourt")
 public class VenueCourt {
     @TableId
-    private int venueCourtID;
-    private int venueID;
-    private int categoryID;
+    private Integer venueCourtID;
+    private Integer venueID;
+    private Integer categoryID;
     private boolean available;
 }

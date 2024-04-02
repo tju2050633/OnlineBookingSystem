@@ -18,48 +18,58 @@ public class UserService {
     // user
 
     public List<User> getAllUsers() {
-        return userMapper.selectList(new QueryWrapper<>());
+        System.out.println("Service Getting all users");
+        return userMapper.getAllUsers();
     }
 
     public User getUserById(int id) {
+        System.out.println("Service Getting user by id" + id);
         return userMapper.selectById(id);
     }
 
     public User addUser(User user) {
+        System.out.println("Service Adding user" + user.toString());
         userMapper.insert(user);
         return user;
     }
 
     public User updateUser(User user) {
+        System.out.println("Service Updating user" + user.toString());
         userMapper.updateById(user);
         return user;
     }
 
     public void deleteUser(int id) {
+        System.out.println("Service Deleting user by id" + id);
         userMapper.deleteById(id);
     }
 
     // blacklist
     
     public List<Blacklist> getAllBannedUsers() {
+        System.out.println("Service Getting all banned users");
         return blacklistMapper.selectList(new QueryWrapper<>());
     }
 
     public Blacklist getBannedUserById(int id) {
+        System.out.println("Service Getting banned user by id" + id);
         return blacklistMapper.selectById(id);
     }
 
     public Blacklist addBannedUser(Blacklist blacklist) {
+        System.out.println("Service Adding banned user" + blacklist.toString());
         blacklistMapper.insert(blacklist);
         return blacklist;
     }
 
     public Blacklist updateBannedUser(Blacklist blacklist) {
+        System.out.println("Service Updating banned user" + blacklist.toString());
         blacklistMapper.updateById(blacklist);
         return blacklist;
     }
 
     public void deleteBannedUser(int id) {
+        System.out.println("Service Deleting banned user by id" + id);
         blacklistMapper.deleteById(id);
     }
 }
