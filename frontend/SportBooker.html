@@ -8,7 +8,7 @@
 
     <body>
         <h1>SportBooker</h1>
-        <form>
+        <form action="SportBooker.php" method="post">
             <label for="Name">Name:</label>
             <input type="text" id="Name" name="Name">
             <br><br>
@@ -35,29 +35,29 @@
             <br><br>
 
             <label for="SC">Choose a facility:</label>
-            <div id="SC" name="facility" onchange="Govenue()">
-                <select id = "SC1" style="display: none;">
+            <div id="SC" name="Facility" onchange="Govenue()">
+                <select id = "SC1" style="display: none;" name="selectedFacility" onchange="resetf1()">
                     <option value=""></option>
                     <option value="Table tennis table">Table tennis table</option>
                     <option value="Badminton court">Badminton court</option>
                     <option value="Bowling alley">Bowling alley</option>
                     <option value="Pool table">Pool table</option>
                 </select>
-                <select id = "SC2" style="display: none;">
+                <select id = "SC2" style="display: none;" name="selectedFacility" onchange="resetf2()">
                     <option value=""></option>
                     <option value="Basketball court">Basketball court</option>
                     <option value="Volleyball court">Volleyball court</option>
                     <option value="Squash court">Squash court</option>
                     <option value="Tennis court"> Tennis court</option>
                 </select>
-                <select id = "SC3" style="display: none;">
+                <select id = "SC3" style="display: none;" name="selectedFacility" onchange="resetf3()">
                     <option value=""></option>
                     <option value="Badminton court">Badminton court</option>
                     <option value="Basketball court"> Basketball court</option>
                     <option value="Squash court">Squash court</option>
                     <option value="Tennis court"> Tennis court</option>
                 </select>
-                <select id = "SC4" style="display: none;">
+                <select id = "SC4" style="display: none;" name="selectedFacility" onchange="resetf4()">
                     <option value=""></option>
                     <option value="Table tennis table">Table tennis table</option>
                     <option value="Volleyball court">Volleyball court</option>
@@ -68,28 +68,28 @@
             <br>
 
             <label for = "SC_f">Choose a venue:</label>
-            <div id = "SC_f">
+            <div id = "SC_f"  name="Venue">
                 <div id = "SC1_f">
-                    <select id = "SC1 Table tennis table" style="display: none;">
+                    <select id = "SC1 Table tennis table" style="display: none;" name="selectedVenue" onchange="resetf1_v1()">
                         <option value=""></option>
                         <option value="Table tennis table 1">Table tennis table 1</option>
                         <option value="Table tennis table 2">Table tennis table 2</option>
                         <option value="Table tennis table 3">Table tennis table 3</option>
                         <option value="Table tennis table 4">Table tennis table 4</option>
                     </select>
-                    <select id = "SC1 Badminton court" style="display: none;">
+                    <select id = "SC1 Badminton court" style="display: none;" name="selectedVenue" onchange="resetf1_v2()">
                         <option value=""></option>
                         <option value="Badminton court 1">Badminton court 1</option>
                         <option value="Badminton court 2">Badminton court 2</option>
                         <option value="Badminton court 3">Badminton court 3</option>
                         <option value="Badminton court 4">Badminton court 4</option>
                     </select>
-                    <select id = "SC1 Bowling alley" style="display: none;">
+                    <select id = "SC1 Bowling alley" style="display: none;" name="selectedVenue" onchange="resetf1_v3()">
                         <option value=""></option>
                         <option value="Bowling alley 1">Bowling alley 1</option>
                         <option value="Bowling alley 2">Bowling alley 2</option>
                     </select>
-                    <select id = "SC1 Pool table" style="display: none;">
+                    <select id = "SC1 Pool table" style="display: none;" name="selectedVenue" onchange="resetf1_v4()">
                         <option value=""></option>
                         <option value="Pool table 1">Pool table 1</option>
                         <option value="Pool table 2">Pool table 2</option>
@@ -99,26 +99,26 @@
                 </div>
                 
                 <div id = "SC2_f">
-                    <select id = "SC2 Basketball court" style="display: none;">
+                    <select id = "SC2 Basketball court" style="display: none;" name="selectedVenue" onchange="resetf2_v1()">
                         <option value=""></option>
                         <option value="Basketball court 1">Basketball court 1</option>
                         <option value="Basketball court 2">Basketball court 2</option>
                         <option value="Basketball court 3">Basketball court 3</option>
                     </select>
-                    <select id = "SC2 Volleyball court" style="display: none;">
+                    <select id = "SC2 Volleyball court" style="display: none;" name="selectedVenue" onchange="resetf2_v2()">
                         <option value=""></option>
                         <option value="Volleyball court 1">Volleyball court 1</option>
                         <option value="Volleyball court 2">Volleyball court 2</option>
                         <option value="Volleyball court 3">Volleyball court 3</option>
                         <option value="Volleyball court 4">Volleyball court 4</option>
                     </select>
-                    <select id = "SC2 Squash court" style="display: none;">
+                    <select id = "SC2 Squash court" style="display: none;" name="selectedVenue" onchange="resetf2_v3()">
                         <option value=""></option>
                         <option value="Squash court 1">Squash court 1</option>
                         <option value="Squash court 2">Squash court 2</option>
                         <option value="Squash court 3">Squash court 3</option>
                     </select>
-                    <select id = "SC2 Tennis court" style="display: none;">
+                    <select id = "SC2 Tennis court" style="display: none;" name="selectedVenue" onchange="resetf2_v4()">
                         <option value=""></option>
                         <option value="Tennis court 1">Tennis court 1</option>
                         <option value="Tennis court 2">Tennis court 2</option>
@@ -128,27 +128,27 @@
                 </div>
 
                 <div id = "SC3_f">
-                    <select id = "SC3 Badminton court" style="display: none;">
+                    <select id = "SC3 Badminton court" style="display: none;" name="selectedVenue" onchange="resetf3_v1()">
                         <option value=""></option>
                         <option value="Badminton court 1">Badminton court 1</option>
                         <option value="Badminton court 2">Badminton court 2</option>
                         <option value="Badminton court 3">Badminton court 3</option>
                         <option value="Badminton court 4">Badminton court 4</option>
                     </select>
-                    <select id = "SC3 Basketball court" style="display: none;">
+                    <select id = "SC3 Basketball court" style="display: none;" name="selectedVenue" onchange="resetf3_v2()">
                         <option value=""></option>
                         <option value="Basketball court 1">Basketball court 1</option>
                         <option value="Basketball court 2">Basketball court 2</option>
                         <option value="Basketball court 3">Basketball court 3</option>
                     </select>
-                    <select id = "SC3 Squash court" style="display: none;">
+                    <select id = "SC3 Squash court" style="display: none;" name="selectedVenue" onchange="resetf3_v3()">
                         <option value=""></option>
                         <option value="Squash court 1">Squash court 1</option>
                         <option value="Squash court 2">Squash court 2</option>
                         <option value="Squash court 3">Squash court 3</option>
                         <option value="Squash court 4">Squash court 3</option>
                     </select>
-                    <select id = "SC3 Tennis court" style="display: none;">
+                    <select id = "SC3 Tennis court" style="display: none;" name="selectedVenue" onchange="resetf3_v4()">
                         <option value=""></option>
                         <option value="Tennis court">Tennis court 1</option>
                         <option value="Tennis court">Tennis court 2</option>
@@ -157,26 +157,26 @@
                 </div>
 
                 <div id = "SC4_f">
-                    <select id = "SC4 Table tennis table" style="display: none;">
+                    <select id = "SC4 Table tennis table" style="display: none;" name="selectedVenue" onchange="resetf4_v1()">
                         <option value=""></option>
                         <option value="Table tennis table 1">Table tennis table 1</option>
                         <option value="Table tennis table 2">Table tennis table 2</option>
                         <option value="Table tennis table 3">Table tennis table 3</option>
                         <option value="Table tennis table 4">Table tennis table 4</option>
                     </select>
-                    <select id = "SC4 Volleyball court" style="display: none;">
+                    <select id = "SC4 Volleyball court" style="display: none;" name="selectedVenue" onchange="resetf4_v2()">
                         <option value=""></option>
                         <option value="Volleyball court 1">Volleyball court 1</option>
                         <option value="Volleyball court 2">Volleyball court 2</option>
                         <option value="Volleyball court 3">Volleyball court 3</option>
                     </select>
-                    <select id = "SC4 Bowling alley" style="display: none;">
+                    <select id = "SC4 Bowling alley" style="display: none;" name="selectedVenue" onchange="resetf4_v3()">
                         <option value=""></option>
                         <option value="Bowling alley 1">Bowling alley 1</option>
                         <option value="Bowling alley 2">Bowling alley 2</option>
                         <option value="Bowling alley 3">Bowling alley 3</option>
                     </select>
-                    <select id = "SC4 Pool table" style="display: none;">
+                    <select id = "SC4 Pool table" style="display: none;" name="selectedVenue" onchange="resetf4_v4()">
                         <option value=""></option>
                         <option value="Pool table 1">Pool table 1</option>
                         <option value="Pool table 2">Pool table 2</option>
@@ -187,9 +187,8 @@
             </div>
             <br>
 
-            <label for = "date">Choose a date:</label>
-            <input id="date-picker" type="date"/>
-            <p id = "demo"></p>
+            <label for = "Date">Choose a date:</label>
+            <input type="date" id="date-picker" name="Date"/>
             <script>
                 const datePicker = document.getElementById("date-picker");
                 datePicker.min = getDate();
@@ -207,73 +206,74 @@
                 }
             </script>
 
-            <label for = "date">Choose a time:</label>
-            <div id="timetable" class="time">
-                <input type="checkbox" id="9:00-9:30">
+            <label for = "Time">Choose a time:</label>
+            <div id="Time" class="Time" name="Time">
+                <input type="checkbox" id="9:00-9:30" name="selectedTimes[]" value="9:00-9:30">
                 <label for="9:00-9:30">9:00 - 9:30</label>
-                <input type="checkbox" id="9:30-10:00">
+                <input type="checkbox" id="9:30-10:00" name="selectedTimes[]" value="9:30-10:00">
                 <label for="9:30-10:00">9:30-10:00</label>
-                <input type="checkbox" id="10:00-10:30">
+                <input type="checkbox" id="10:00-10:30" name="selectedTimes[]" value="10:00-10:30">
                 <label for="10:00-10:30">10:00-10:30</label>
-                <input type="checkbox" id="10:30-11:00">
+                <input type="checkbox" id="10:30-11:00" name="selectedTimes[]" value="10:30-11:00">
                 <label for="10:30-11:00">10:30-11:00</label>
-                <input type="checkbox" id="11:00-11:30">
+                <input type="checkbox" id="11:00-11:30" name="selectedTimes[]" value="11:00-11:30">
                 <label for="11:00-11:30">11:00-11:30</label>
-                <input type="checkbox" id="11:30-12:00">
+                <input type="checkbox" id="11:30-12:00" name="selectedTimes[]" value="11:30-12:00">
                 <label for="11:30-12:00">11:30-12:00</label>
-                <input type="checkbox" id="12:00-12:30">
+                <input type="checkbox" id="12:00-12:30" name="selectedTimes[]" value="12:00-12:30">
                 <label for="12:00-12:30">12:00-12:30</label>
-                <input type="checkbox" id="12:30-13:00">
+                <input type="checkbox" id="12:30-13:00" name="selectedTimes[]" value="12:30-13:00">
                 <label for="12:30-13:00">12:30-13:00</label>
-                <input type="checkbox" id="13:00-13:30">
+                <input type="checkbox" id="13:00-13:30" name="selectedTimes[]" value="13:00-13:30">
                 <label for="13:00-13:30">13:00-13:30</label>
-                <input type="checkbox" id="13:30-14:00">
+                <input type="checkbox" id="13:30-14:00" name="selectedTimes[]" value="13:30-14:00">
                 <label for="13:30-14:00">13:30-14:00</label>
-                <input type="checkbox" id="14:00-14:30">
+                <input type="checkbox" id="14:00-14:30" name="selectedTimes[]" value="14:00-14:30">
                 <label for="14:00-14:30">14:00-14:30</label>
-                <input type="checkbox" id="14:30-15:00">
+                <input type="checkbox" id="14:30-15:00" name="selectedTimes[]" value="14:30-15:00">
                 <label for="14:30-15:00">14:30-15:00</label>
-                <input type="checkbox" id="15:00-15:30">
+                <input type="checkbox" id="15:00-15:30" name="selectedTimes[]" value="15:00-15:30">
                 <label for="15:00-15:30">15:00-15:30</label>
-                <input type="checkbox" id="15:30-16:00">
+                <input type="checkbox" id="15:30-16:00" name="selectedTimes[]" value="15:30-16:00">
                 <label for="15:30-16:00">15:30-16:00</label>
-                <input type="checkbox" id="16:00-16:30">
+                <input type="checkbox" id="16:00-16:30" name="selectedTimes[]" value="16:00-16:30">
                 <label for="16:00-16:30">16:00-16:30</label>
-                <input type="checkbox" id="16:30-17:00">
+                <input type="checkbox" id="16:30-17:00" name="selectedTimes[]" value="16:30-17:00">
                 <label for="16:30-17:00">16:30-17:00</label>
-                <input type="checkbox" id="17:00-17:30">
+                <input type="checkbox" id="17:00-17:30" name="selectedTimes[]" value="16:30-17:30">
                 <label for="17:00-17:30">17:00-17:30</label>
-                <input type="checkbox" id="17:30-18:00">
+                <input type="checkbox" id="17:30-18:00" name="selectedTimes[]" value="17:30-18:00">
                 <label for="17:30-18:00">17:30-18:00</label>
-                <input type="checkbox" id="18:00-18:30">
+                <input type="checkbox" id="18:00-18:30" name="selectedTimes[]" value="18:00-18:30">
                 <label for="18:00-18:30">18:00-18:30</label>
-                <input type="checkbox" id="18:30-19:00">
+                <input type="checkbox" id="18:30-19:00" name="selectedTimes[]" value="18:30-19:00">
                 <label for="18:30-19:00">18:30-19:00</label>
-                <input type="checkbox" id="19:00-19:30">
+                <input type="checkbox" id="19:00-19:30" name="selectedTimes[]" value="19:00-19:30">
                 <label for="19:00-19:30">19:00-19:30</label>
-                <input type="checkbox" id="19:30-20:00">
+                <input type="checkbox" id="19:30-20:00" name="selectedTimes[]" value="19:30-20:00">
                 <label for="19:30-20:00">19:30-20:00</label>
-                <input type="checkbox" id="20:00-20:30">
+                <input type="checkbox" id="20:00-20:30" name="selectedTimes[]" value="20:00-20:30">
                 <label for="20:00-20:30">20:00-20:30</label>
-                <input type="checkbox" id="20:30-21:00">
+                <input type="checkbox" id="20:30-21:00" name="selectedTimes[]" value="20:30-21:00">
                 <label for="20:30-21:00">20:30-21:00</label>
-                <input type="checkbox" id="21:00-21:30">
+                <input type="checkbox" id="21:00-21:30" name="selectedTimes[]" value="21:00-21:30">
                 <label for="21:00-21:30">21:00-21:30</label>
-                <input type="checkbox" id="21:30-22:00">
+                <input type="checkbox" id="21:30-22:00" name="selectedTimes[]" value="21:30-22:00">
                 <label for="21:30-22:00">21:00-22:00</label>
-                <input type="checkbox" id="22:00-22:30">
+                <input type="checkbox" id="22:00-22:30" name="selectedTimes[]" value="22:00-22:30">
                 <label for="22:00-22:30">22:00-22:30</label>
-                <input type="checkbox" id="22:30-23:00">
-                <label for="23:30-23:00">23:00-23:00</label>
+                <input type="checkbox" id="22:30-23:00" name="selectedTimes[]" value="22:30-23:00">
+                <label for="22:30-23:00">22:30-23:00</label>
             </div>
             <br>
 
-            <label for="Rent Equipment">Do you need to rent equipment?</label>
-            <input type="radio" id="Rent Equipment" name="Rent Equipment" value="Yes">
+            <label for="Rent_Equipment">Do you need to rent equipment?</label>
+            <input type="radio" id="Rent_Equipment" name="Rent_Equipment" value="Yes">
             <label for="Yes">Yes</label>
-            <input type="radio" id="Rent Equipment" name="Rent Equipment" value="No">
+            <input type="radio" id="Rent_Equipment" name="Rent_Equipment" value="No">
             <label for="No">No</label>
             <br><br>
+            
             <label for = "Pay">Please select a way to pay</label>
             <input type="radio" id = "Pay" name="Pay" value="Cash">
             <label for="Cash">Cash</label>
@@ -286,7 +286,7 @@
             <input type="radio" id = "Pay" name="Pay" value="Credit card">
             <label for="Credit card">Credit card</label>
             <br><br>
-            <input type="button" value="submit" onclick="Payment()">
+            <input type="submit" value="Submit">
         </form>
     </body>
 </html>
