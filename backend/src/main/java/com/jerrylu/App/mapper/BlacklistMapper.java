@@ -11,5 +11,5 @@ import java.util.List;
 @Component
 public interface BlacklistMapper extends BaseMapper<Blacklist> {
     @Select("SELECT * FROM Blacklist")
-    List<User> getAllBlacklists();
+    List<Blacklist> getAllBlacklists();
 }

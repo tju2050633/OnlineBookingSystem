@@ -13,8 +13,11 @@ import java.util.List;
 public class BookingService {
     @Autowired
     private VenueMapper venueMapper;
+    @Autowired
     private CourtCategoryMapper courtCategoryMapper;
+    @Autowired
     private VenueCourtMapper venueCourtMapper;
+    @Autowired
     private BookingMapper bookingMapper;
 
     // venue
@@ -46,14 +49,14 @@ public class BookingService {
     public List<VenueCourt> getVenueCourtsByVenueId(int venueId) {
         System.out.println("Service Getting venue courts by venue id: " + venueId);
         QueryWrapper<VenueCourt> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("VenueID", venueId);
+        queryWrapper.eq("venue_id", venueId);
         return venueCourtMapper.selectList(queryWrapper);
     }
 
     public List<VenueCourt> getVenueCourtsByCourtCategoryId(int courtCategoryId) {
         System.out.println("Service Getting venue courts by court category id: " + courtCategoryId);
         QueryWrapper<VenueCourt> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("CourtCategoryID", courtCategoryId);
+        queryWrapper.eq("category_id", courtCategoryId);
         return venueCourtMapper.selectList(queryWrapper);
     }
 
@@ -89,7 +92,7 @@ public class BookingService {
     public List<Booking> getBookingsByUserId(int userId) {
         System.out.println("Service Getting bookings by user id: " + userId);
         QueryWrapper<Booking> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("UserID", userId);
+        queryWrapper.eq("userID", userId);
         return bookingMapper.selectList(queryWrapper);
     }
 

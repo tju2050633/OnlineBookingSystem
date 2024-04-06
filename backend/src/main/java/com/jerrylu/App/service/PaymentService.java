@@ -1,6 +1,5 @@
 package com.jerrylu.App.service;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.jerrylu.App.mapper.*;
 import com.jerrylu.App.pojo.*;
 
@@ -13,6 +12,7 @@ import java.util.List;
 public class PaymentService {
     @Autowired
     private PaymentMapper paymentMapper;
+    @Autowired
     private PaymentMethodMapper paymentMethodMapper;
 
     // payment
@@ -27,11 +27,9 @@ public class PaymentService {
         return paymentMapper.selectById(id);
     }
 
-    public Payment getPaymentByUserId(int id) {
+    public List<Payment> getPaymentByUserId(int id) {
         System.out.println("Service Getting payment by user id: " + id);
-        QueryWrapper<Payment> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("UserID", id);
-        return paymentMapper.selectOne(queryWrapper);
+        return paymentMapper.selectByUserId(id);
     }
 
     public Payment addPayment(Payment payment) {

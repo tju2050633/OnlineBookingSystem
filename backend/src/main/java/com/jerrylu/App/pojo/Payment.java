@@ -15,9 +15,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @TableName("Payment")
 public class Payment {
     @TableId
-    private Integer paymentID;
-    private Integer userID;
-    private Integer methodID;
+    private Integer paymentId;
+    private Integer userId;
+    private Integer methodId;
     private double amount;
     private Date paymentDate;
 }

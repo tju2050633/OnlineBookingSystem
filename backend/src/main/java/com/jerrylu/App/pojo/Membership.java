@@ -13,7 +13,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @TableName("Membership")
 public class Membership {
     @TableId
-    private Integer membershipID;
+    private Integer membershipId;
     private String type;
     private double price;
     private Integer validityPeriod;

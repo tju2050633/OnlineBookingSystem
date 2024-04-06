@@ -15,7 +15,7 @@ import java.sql.Time;
 @TableName("Venue")
 public class Venue {
     @TableId
-    private Integer venueID;
+    private Integer venueId;
     private String name;
     private String address;
     private String phoneNumber;

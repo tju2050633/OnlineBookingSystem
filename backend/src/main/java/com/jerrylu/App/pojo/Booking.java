@@ -16,10 +16,10 @@ import java.sql.Time;
 @TableName("Booking")
 public class Booking {
     @TableId
-    private Integer bookingID;
-    private Integer userID;
-    private Integer venueID;
-    private Integer venueCourtID;
+    private Integer bookingId;
+    private Integer userId;
+    private Integer venueId;
+    private Integer venueCourtId;
     private Date bookingDate;
     private Time startTime;
     private Time endTime;

@@ -1,6 +1,5 @@
 package com.jerrylu.App.service;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.jerrylu.App.mapper.*;
 import com.jerrylu.App.pojo.*;
 
@@ -13,6 +12,7 @@ import java.util.List;
 public class UserService {
     @Autowired
     private UserMapper userMapper;
+    @Autowired
     private BlacklistMapper blacklistMapper;
 
     // user
@@ -48,7 +48,7 @@ public class UserService {
     
     public List<Blacklist> getAllBannedUsers() {
         System.out.println("Service Getting all banned users");
-        return blacklistMapper.selectList(new QueryWrapper<>());
+        return blacklistMapper.getAllBlacklists();
     }
 
     public Blacklist getBannedUserById(int id) {

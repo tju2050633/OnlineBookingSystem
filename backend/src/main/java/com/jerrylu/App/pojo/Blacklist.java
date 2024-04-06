@@ -15,8 +15,8 @@ import java.util.Date;
 @TableName("Blacklist")
 public class Blacklist {
     @TableId
-    private Integer blacklistID;
-    private Integer userID;
+    private Integer blacklistId;
+    private Integer userId;
     private String reason;
     private Date dateAdded;
 }

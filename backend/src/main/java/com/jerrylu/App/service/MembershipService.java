@@ -13,6 +13,7 @@ import java.util.List;
 public class MembershipService {
     @Autowired
     private MembershipMapper membershipMapper;
+    @Autowired
     private MembershipSaleMapper membershipSaleMapper;
 
     // membership
@@ -37,7 +38,7 @@ public class MembershipService {
     public MembershipSale getMembershipSaleByMembershipId(int id) {
         System.out.println("Service Getting membership sale by membership id: " + id);
         QueryWrapper<MembershipSale> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("MembershipID", id);
+        queryWrapper.eq("membership_id", id);
         return membershipSaleMapper.selectOne(queryWrapper);
     }
 

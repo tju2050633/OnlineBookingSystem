@@ -13,8 +13,11 @@ import java.util.List;
 public class EquipmentService {
     @Autowired
     private EquipmentRentalMapper equipmentRentalMapper;
+    @Autowired
     private EquipmentRentalRecordMapper equipmentRentalRecordMapper;
+    @Autowired
     private EquipmentPurchaseMapper equipmentPurchaseMapper;
+    @Autowired
     private EquipmentPurchaseRecordMapper equipmentPurchaseRecordMapper;
 
     // rental
@@ -41,14 +44,14 @@ public class EquipmentService {
     public List<EquipmentRentalRecord> getEquipmentRentalRecordsByUserId(int userId) {
         System.out.println("Service Getting equipment rental records by user id: " + userId);
         QueryWrapper<EquipmentRentalRecord> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("UserID", userId);
+        queryWrapper.eq("user_id", userId);
         return equipmentRentalRecordMapper.selectList(queryWrapper);
     }
 
     public List<EquipmentRentalRecord> getEquipmentRentalRecordsByEquipmentId(int equipmentId) {
         System.out.println("Service Getting equipment rental records by equipment id: " + equipmentId);
         QueryWrapper<EquipmentRentalRecord> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("EquipmentID", equipmentId);
+        queryWrapper.eq("equipment_id", equipmentId);
         return equipmentRentalRecordMapper.selectList(queryWrapper);
     }
 
@@ -77,14 +80,14 @@ public class EquipmentService {
     public List<EquipmentPurchaseRecord> getEquipmentPurchaseRecordsByUserId(int userId) {
         System.out.println("Service Getting equipment purchase records by user id: " + userId);
         QueryWrapper<EquipmentPurchaseRecord> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("UserID", userId);
+        queryWrapper.eq("user_id", userId);
         return equipmentPurchaseRecordMapper.selectList(queryWrapper);
     }
 
     public List<EquipmentPurchaseRecord> getEquipmentPurchaseRecordsByEquipmentId(int equipmentId) {
         System.out.println("Service Getting equipment purchase records by equipment id: " + equipmentId);
         QueryWrapper<EquipmentPurchaseRecord> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("EquipmentID", equipmentId);
+        queryWrapper.eq("equipment_id", equipmentId);
         return equipmentPurchaseRecordMapper.selectList(queryWrapper);
     }
 

@@ -28,7 +28,7 @@ public class PaymentController {
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<Payment> getPaymentByUserId(@PathVariable int userId) {
+    public ResponseEntity<List<Payment>> getPaymentByUserId(@PathVariable int userId) {
         return ResponseEntity.ok(paymentService.getPaymentByUserId(userId));
     }
 

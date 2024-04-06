@@ -12,4 +12,7 @@ import java.util.List;
 public interface PaymentMapper extends BaseMapper<Payment> {
     @Select("SELECT * FROM Payment")
     List<Payment> getAllPayments();
+
+    @Select("SELECT * FROM Payment WHERE user_id = #{id}")
+    List<Payment> selectByUserId(int id);
 }
