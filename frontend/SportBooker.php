@@ -17,12 +17,6 @@
             if(isset($_POST['Center'])){
                 $Center = $_POST['Center'];
             }
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $selectedFacility = $_POST["selectedFacility"];
-            }
-            if(isset($_POST['selectedFacility'])){
-                $selectedVenue = $_POST['selectedVenue'];
-            }
             if(isset($_POST['Date'])){
                 $Date = $_POST["Date"];
             }
@@ -44,9 +38,16 @@
             echo '<br><br>';
             echo "Center: " . $Center;
             echo '<br><br>';
-            echo "Facility: " . $selectedFacility;
-            echo '<br><br>';
-            echo "Venue: " . $selectedVenue;
+            echo "Venue: ";
+            if(isset($_POST['selectedVenue'])){
+                $selectedVenue = $_POST['selectedVenue'];
+                foreach ($selectedVenue as $Venue) {
+                    if (!empty($Venue)) {
+                        echo $Venue;
+                        break;
+                    }
+                }
+            }
             echo '<br><br>';
             echo "Date: " . $Date;
             echo '<br><br>';
@@ -62,96 +63,99 @@
             echo "Pay: " . $Pay;
             '<br><br>';
 
-            define('Table_tennis_table_weekday', 3.5);
-            define('Table_tennis_table_weekend', 6);
-            define('Badminton_court_weekday', 15);
-            define('Badminton_court_weekend', 25);
-            define('Basketball_court_weekday', 32.5);
-            define('Basketball_court_weekend', 50);
-            define('Volleyball_court_weekday', 32.5);
-            define('Volleyball_court_weekend', 50);
-            define('Bowling_alley_weekday', 40);
-            define('Bowling_alley_weekend', 66);
-            define('Squash_court_weekday', 14);
-            define('Squash_court_weekend', 21);
-            define('Tennis_court_weekday', 15);
-            define('Tennis_court_weekend', 25);
-            define('Pool_table_weekday', 12);
-            define('Pool_table_weekend', 20);
+            $Table_tennis_table_weekday=3.5;
+            $Table_tennis_table_weekend=6;
+            $Badminton_court_weekday=15;
+            $Badminton_court_weekend =25;
+            $Basketball_court_weekday=32.5;
+            $Basketball_court_weekend=50;
+            $Volleyball_court_weekday=32.5;
+            $Volleyball_court_weekend=50;
+            $Bowling_alley_weekday=40;
+            $Bowling_alley_weekend=66;
+            $Squash_court_weekday=14;
+            $Squash_court_weekend=21;
+            $Tennis_court_weekday=15;
+            $Tennis_court_weekend=25;
+            $Pool_table_weekday=12;
+            $Pool_table_weekend=20;
 
-            $Price = 0;
-            if ($selectedFacility=="Table tennis table") {
-                if (date('l', strtotime($Date)) == 'Saturday'||'Sunday'){
-                    $Price == $Table_tennis_table_weekend;
+            if (substr($Venue, 0, -2)=="Table tennis table") {
+                if (date('l', strtotime($Date)) == 'Saturday' || date('l', strtotime($Date)) == 'Sunday'){
+                    $Price = $Table_tennis_table_weekend;
                 }
                 else {
-                    $Price == $Table_tennis_table_weekday;
+                    $Price = $Table_tennis_table_weekday;
                 }
             }
-            elseif ($selectedFacility=="Badminton court") {
-                if (date('l', strtotime($Date)) == 'Saturday'||'Sunday'){
-                    $Price == $Badminton_court_weekend;
+            elseif (substr($Venue, 0, -2)=="Badminton court") {
+                if (date('l', strtotime($Date)) == 'Saturday' || date('l', strtotime($Date)) == 'Sunday'){
+                    $Price = $Badminton_court_weekend;
                 }
                 else {
-                    $Price == $Badminton_court_weekday;
+                    $Price = $Badminton_court_weekday;
                 }
             }
-            elseif ($selectedFacility=="Basketball court") {
-                if (date('l', strtotime($Date)) == 'Saturday'||'Sunday'){
-                    $Price == $Basketball_court_weekend;
+            elseif (substr($Venue, 0, -2)=="Basketball court") {
+                if (date('l', strtotime($Date)) == 'Saturday' || date('l', strtotime($Date)) == 'Sunday'){
+                    $Price = $Basketball_court_weekend;
                 }
                 else {
-                    $Price == $Basketball_court_weekday;
+                    $Price = $Basketball_court_weekday;
                 }
             }
-            elseif ($selectedFacility=="Volleyball court") {
-                if (date('l', strtotime($Date)) == 'Saturday'||'Sunday'){
-                    $Price == $Volleyball_court_weekend;
+            elseif (substr($Venue, 0, -2)=="Volleyball court") {
+                if (date('l', strtotime($Date)) == 'Saturday' || date('l', strtotime($Date)) == 'Sunday'){
+                    $Price = $Volleyball_court_weekend;
                 }
                 else {
-                    $Price == $Volleyball_court_weekday;
+                    $Price = $Volleyball_court_weekday;
                 }
             }
-            elseif ($selectedFacility=="Bowling alley") {
-                if (date('l', strtotime($Date)) == 'Saturday'||'Sunday'){
-                    $Price == $Bowling_alley_weekend;
+            elseif (substr($Venue, 0, -2)=="Bowling alley") {
+                if (date('l', strtotime($Date)) == 'Saturday' || date('l', strtotime($Date)) == 'Sunday'){
+                    $Price = $Bowling_alley_weekend;
                 }
                 else {
-                    $Price == $Bowling_alley_weekday;
+                    $Price = $Bowling_alley_weekday;
                 }
             }
-            elseif ($selectedFacility=="Squash court") {
-                if (date('l', strtotime($Date)) == 'Saturday'||'Sunday'){
-                    $Price == $Squash_court_weekend;
+            elseif (substr($Venue, 0, -2)=="Squash court") {
+                if (date('l', strtotime($Date)) == 'Saturday' || date('l', strtotime($Date)) == 'Sunday'){
+                    $Price = $Squash_court_weekend;
                 }
                 else {
-                    $Price == $Squash_court_weekday;
+                    $Price = $Squash_court_weekday;
                 }
             }
-            elseif ($selectedFacility=="Tennis court") {
-                if (date('l', strtotime($Date)) == 'Saturday'||'Sunday'){
-                    $Price == $Tennis_court_weekend;
+            elseif (substr($Venue, 0, -2)=="Tennis court") {
+                if (date('l', strtotime($Date)) == 'Saturday' || date('l', strtotime($Date)) == 'Sunday'){
+                    $Price = $Tennis_court_weekend;
                 }
                 else {
-                    $Price == $Tennis_court_weekday;
+                    $Price = $Tennis_court_weekday;
                 }
             }
-            elseif ($selectedFacility=="Badminton court") {
-                if (date('l', strtotime($Date)) == 'Saturday'||'Sunday'){
-                    $Price == $Pool_table_weekend;
+            elseif (substr($Venue, 0, -2)=="Badminton court") {
+                if (date('l', strtotime($Date)) == 'Saturday' || date('l', strtotime($Date)) == 'Sunday'){
+                    $Price = $Pool_table_weekend;
                 }
                 else {
-                    $Price == $Pool_table_weekday;
+                    $Price = $Pool_table_weekday;
                 }
             }
-
-            $totalamount = 0;
-            $totalamount = $Price*count($selectedTimes);
+            
+            if ($Member = $_POST['Member'] == "Yes"){
+                $totalamount = $Price*count($selectedTimes)*0.9;
+            }
+            else {
+                $totalamount = $Price*count($selectedTimes);
+            }
             echo '<p>Total amount is '.$totalamount.'</p>';
             echo '<p>Note:</p>';
             echo '<p>Rent needs to be paid when picking up the equipment at the sports center.</p>';
             echo '<p>You will need to pay an additional $100 cash deposit to rent the items</p>';
         ?>
-        <input type="submit" value="confirm">
+        <input type="submit" value="Confirm">
     </body>
 </html>

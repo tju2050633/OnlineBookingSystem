@@ -9,6 +9,7 @@ function Gofacility() {
     } 
     else {
       question.style.display = "none";
+      Govenue()
     }
   }
 }
