@@ -1,6 +1,5 @@
 package com.jerrylu.App.service;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.jerrylu.App.mapper.*;
 import com.jerrylu.App.pojo.*;
 
@@ -43,26 +42,24 @@ public class EquipmentService {
 
     public List<EquipmentRentalRecord> getEquipmentRentalRecordsByUserId(int userId) {
         System.out.println("Service Getting equipment rental records by user id: " + userId);
-        QueryWrapper<EquipmentRentalRecord> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("user_id", userId);
-        return equipmentRentalRecordMapper.selectList(queryWrapper);
+        return equipmentRentalRecordMapper.selectByUserId(userId);
     }
 
     public List<EquipmentRentalRecord> getEquipmentRentalRecordsByEquipmentId(int equipmentId) {
         System.out.println("Service Getting equipment rental records by equipment id: " + equipmentId);
-        QueryWrapper<EquipmentRentalRecord> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("equipment_id", equipmentId);
-        return equipmentRentalRecordMapper.selectList(queryWrapper);
+        return equipmentRentalRecordMapper.selectByEquipmentId(equipmentId);
     }
 
-    public void addEquipmentRentalRecord(EquipmentRentalRecord equipmentRentalRecord) {
+    public EquipmentRentalRecord addEquipmentRentalRecord(EquipmentRentalRecord equipmentRentalRecord) {
         System.out.println("Service Adding equipment rental record: " + equipmentRentalRecord.toString());
         equipmentRentalRecordMapper.insert(equipmentRentalRecord);
+        return equipmentRentalRecord;
     }
 
-    public void updateEquipmentRentalRecord(EquipmentRentalRecord equipmentRentalRecord) {
+    public EquipmentRentalRecord updateEquipmentRentalRecord(EquipmentRentalRecord equipmentRentalRecord) {
         System.out.println("Service Updating equipment rental record: " + equipmentRentalRecord.toString());
         equipmentRentalRecordMapper.updateById(equipmentRentalRecord);
+        return equipmentRentalRecord;
     }
 
     public void deleteEquipmentRentalRecord(int id) {
@@ -79,26 +76,24 @@ public class EquipmentService {
 
     public List<EquipmentPurchaseRecord> getEquipmentPurchaseRecordsByUserId(int userId) {
         System.out.println("Service Getting equipment purchase records by user id: " + userId);
-        QueryWrapper<EquipmentPurchaseRecord> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("user_id", userId);
-        return equipmentPurchaseRecordMapper.selectList(queryWrapper);
+        return equipmentPurchaseRecordMapper.selectByUserId(userId);
     }
 
     public List<EquipmentPurchaseRecord> getEquipmentPurchaseRecordsByEquipmentId(int equipmentId) {
         System.out.println("Service Getting equipment purchase records by equipment id: " + equipmentId);
-        QueryWrapper<EquipmentPurchaseRecord> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("equipment_id", equipmentId);
-        return equipmentPurchaseRecordMapper.selectList(queryWrapper);
+        return equipmentPurchaseRecordMapper.selectByEquipmentId(equipmentId);
     }
 
-    public void addEquipmentPurchaseRecord(EquipmentPurchaseRecord equipmentPurchaseRecord) {
+    public EquipmentPurchaseRecord addEquipmentPurchaseRecord(EquipmentPurchaseRecord equipmentPurchaseRecord) {
         System.out.println("Service Adding equipment purchase record: " + equipmentPurchaseRecord.toString());
         equipmentPurchaseRecordMapper.insert(equipmentPurchaseRecord);
+        return equipmentPurchaseRecord;
     }
 
-    public void updateEquipmentPurchaseRecord(EquipmentPurchaseRecord equipmentPurchaseRecord) {
+    public EquipmentPurchaseRecord updateEquipmentPurchaseRecord(EquipmentPurchaseRecord equipmentPurchaseRecord) {
         System.out.println("Service Updating equipment purchase record: " + equipmentPurchaseRecord.toString());
         equipmentPurchaseRecordMapper.updateById(equipmentPurchaseRecord);
+        return equipmentPurchaseRecord;
     }
 
     public void deleteEquipmentPurchaseRecord(int id) {

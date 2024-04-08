@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./User.js"></script>
+    <script src="./Payment.js"></script>
+    <script src="./Membership.js"></script>
+    <script src="./Equipment.js"></script>
+    <script src="./Booking.js"></script>
+    <style>
+        #btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #btn:hover {
+            background-color: #45a049;
+        }
+        #myTextarea {
+            width: 100%;
+            height: 1000px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">test</button>
+    <textarea id="myTextarea"></textarea>
+
+    <script>
+        $(document).ready(function(){
+
+            var user = {
+                "userId": 6,
+                "membershipId": 2,
+                "name": "Jane Smith",
+                "password": "janepassword",
+                "gender": "Female",
+                "email": "jane.smith@example.com",
+                "phoneNumber": "87654321",
+                "hkid": "B2345679",
+                "birthday": "1990-02-02",
+                "address": "456 Secondary St",
+                "dateRegistered": "2023-05-08"
+            };
+
+            var blacklist = {
+                "blacklistId": 2,
+                "userId": 5,
+                "reason": "Breaking the rules",
+                "dateAdded": "2023-05-08"
+            }
+
+            var payment = {
+                "paymentId": 4,
+                "userId": 5,
+                "methodId": 1,
+                "amount": 200,
+                "paymentDate": "2024-04-01"
+            };
+
+            var membershipSale = {
+                "saleId": 4,
+                "membershipId": 4,
+                "userId": 1,
+                "saleDate": "2024-05-08"
+            };
+
+            var equipmentRentalRecord = {
+                "rentalId": 12,
+                "equipmentId": 1,
+                "userId": 1,
+                "date": "2023-05-08"
+            };
+
+            var equipmentPurchaseRecord = {
+                "purchaseId": 12,
+                "equipmentId": 1,
+                "userId": 1,
+                "date": "2023-05-08"
+            };
+
+            var venueCourt = {
+                "venueCourtId": 9,
+                "venueId": 1,
+                "categoryId": 1,
+                "available": false
+            };
+
+            var booking = {
+                "bookingId": 3,
+                "userId": 5,
+                "venueId": 2,
+                "venueCourtId": 2,
+                "bookingDate": "2023-05-08",
+                "startTime": "10:00:00",
+                "endTime": "12:00:00"
+            };
+
+            $("#btn").click(function(){
+                deleteBooking(3).done(function(result) {
+                    $("#myTextarea").val(JSON.stringify(result, null, 2));
+                }).fail(function(error) {
+                    console.log(error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

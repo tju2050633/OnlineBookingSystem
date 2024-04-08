@@ -1,6 +1,5 @@
 package com.jerrylu.App.service;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.jerrylu.App.mapper.*;
 import com.jerrylu.App.pojo.*;
 
@@ -35,18 +34,14 @@ public class MembershipService {
         return membershipSaleMapper.selectById(id);
     }
 
-    public MembershipSale getMembershipSaleByMembershipId(int id) {
+    public List<MembershipSale> getMembershipSaleByMembershipId(int id) {
         System.out.println("Service Getting membership sale by membership id: " + id);
-        QueryWrapper<MembershipSale> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("membership_id", id);
-        return membershipSaleMapper.selectOne(queryWrapper);
+        return membershipSaleMapper.selectByMembershipId(id);
     }
 
-    public MembershipSale getMembershipSaleByUserId(int id) {
+    public List<MembershipSale> getMembershipSaleByUserId(int id) {
         System.out.println("Service Getting membership sale by user id: " + id);
-        QueryWrapper<MembershipSale> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("UserID", id);
-        return membershipSaleMapper.selectOne(queryWrapper);
+        return membershipSaleMapper.selectByUserId(id);
     }
 
     public MembershipSale addMembershipSale(MembershipSale membershipSale) {

@@ -47,15 +47,13 @@ public class EquipmentController {
     }
     
     @PostMapping("/rental/record/add")
-    public ResponseEntity<Void> addEquipmentRentalRecord(@RequestBody EquipmentRentalRecord equipmentRentalRecord) {
-        equipmentService.addEquipmentRentalRecord(equipmentRentalRecord);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<EquipmentRentalRecord> addEquipmentRentalRecord(@RequestBody EquipmentRentalRecord equipmentRentalRecord) {
+        return ResponseEntity.ok(equipmentService.addEquipmentRentalRecord(equipmentRentalRecord));
     }
 
     @PutMapping("/rental/record/update")
-    public ResponseEntity<Void> updateEquipmentRentalRecord(@RequestBody EquipmentRentalRecord equipmentRentalRecord) {
-        equipmentService.updateEquipmentRentalRecord(equipmentRentalRecord);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<EquipmentRentalRecord> updateEquipmentRentalRecord(@RequestBody EquipmentRentalRecord equipmentRentalRecord) {
+        return ResponseEntity.ok(equipmentService.updateEquipmentRentalRecord(equipmentRentalRecord));
     }
 
     @DeleteMapping("/rental/record/delete/{id}")
@@ -83,17 +81,15 @@ public class EquipmentController {
     }
 
     @PostMapping("/purchase/record/add")
-    public ResponseEntity<Void> addEquipmentPurchaseRecord(
+    public ResponseEntity<EquipmentPurchaseRecord> addEquipmentPurchaseRecord(
             @RequestBody EquipmentPurchaseRecord equipmentPurchaseRecord) {
-        equipmentService.addEquipmentPurchaseRecord(equipmentPurchaseRecord);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(equipmentService.addEquipmentPurchaseRecord(equipmentPurchaseRecord));
     }
     
     @PutMapping("/purchase/record/update")
-    public ResponseEntity<Void> updateEquipmentPurchaseRecord(
+    public ResponseEntity<EquipmentPurchaseRecord> updateEquipmentPurchaseRecord(
             @RequestBody EquipmentPurchaseRecord equipmentPurchaseRecord) {
-        equipmentService.updateEquipmentPurchaseRecord(equipmentPurchaseRecord);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(equipmentService.updateEquipmentPurchaseRecord(equipmentPurchaseRecord));
     }
 
     @DeleteMapping("/purchase/record/delete/{id}")

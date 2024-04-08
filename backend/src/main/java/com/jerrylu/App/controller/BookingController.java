@@ -83,11 +83,13 @@ public class BookingController {
         return ResponseEntity.ok(bookingService.getBookingsByUserId(userId));
     }
 
-    public ResponseEntity<List<Booking>> getBookingsByVenueId(int venueId) {
+    @GetMapping("/bookings/venue/{venueId}")
+    public ResponseEntity<List<Booking>> getBookingsByVenueId(@PathVariable int venueId) {
         return ResponseEntity.ok(bookingService.getBookingsByVenueId(venueId));
     }
 
-    public ResponseEntity<List<Booking>> getBookingsByVenueCourtId(int venueCourtId) {
+    @GetMapping("/bookings/venue-court/{venueCourtId}")
+    public ResponseEntity<List<Booking>> getBookingsByVenueCourtId(@PathVariable int venueCourtId) {
         return ResponseEntity.ok(bookingService.getBookingsByVenueCourtId(venueCourtId));
     }
 

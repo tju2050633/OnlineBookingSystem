@@ -29,12 +29,12 @@ public class MembershipController {
         }
 
         @GetMapping("/sale/membership/{id}")
-        public ResponseEntity<MembershipSale> getMembershipSaleByMembershipId(@PathVariable int id) {
+        public ResponseEntity<List<MembershipSale>> getMembershipSaleByMembershipId(@PathVariable int id) {
             return ResponseEntity.ok(membershipService.getMembershipSaleByMembershipId(id));
         }
 
         @GetMapping("/sale/user/{id}")
-        public ResponseEntity<MembershipSale> getMembershipSaleByUserId(@PathVariable int id) {
+        public ResponseEntity<List<MembershipSale>> getMembershipSaleByUserId(@PathVariable int id) {
             return ResponseEntity.ok(membershipService.getMembershipSaleByUserId(id));
         }
     

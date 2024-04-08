@@ -1,6 +1,5 @@
 package com.jerrylu.App.service;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.jerrylu.App.mapper.*;
 import com.jerrylu.App.pojo.*;
 
@@ -48,16 +47,12 @@ public class BookingService {
 
     public List<VenueCourt> getVenueCourtsByVenueId(int venueId) {
         System.out.println("Service Getting venue courts by venue id: " + venueId);
-        QueryWrapper<VenueCourt> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("venue_id", venueId);
-        return venueCourtMapper.selectList(queryWrapper);
+        return venueCourtMapper.selectByVenueId(venueId);
     }
 
     public List<VenueCourt> getVenueCourtsByCourtCategoryId(int courtCategoryId) {
         System.out.println("Service Getting venue courts by court category id: " + courtCategoryId);
-        QueryWrapper<VenueCourt> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("category_id", courtCategoryId);
-        return venueCourtMapper.selectList(queryWrapper);
+        return venueCourtMapper.selectByCourtCategoryId(courtCategoryId);
     }
 
     public VenueCourt addVenueCourt(VenueCourt venueCourt) {
@@ -91,23 +86,17 @@ public class BookingService {
 
     public List<Booking> getBookingsByUserId(int userId) {
         System.out.println("Service Getting bookings by user id: " + userId);
-        QueryWrapper<Booking> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("userID", userId);
-        return bookingMapper.selectList(queryWrapper);
+        return bookingMapper.selectByUserId(userId);
     }
 
     public List<Booking> getBookingsByVenueId(int venueId) {
         System.out.println("Service Getting bookings by venue id: " + venueId);
-        QueryWrapper<Booking> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("VenueID", venueId);
-        return bookingMapper.selectList(queryWrapper);
+        return bookingMapper.selectByVenueId(venueId);
     }
 
     public List<Booking> getBookingsByVenueCourtId(int venueCourtId) {
         System.out.println("Service Getting bookings by venue court id: " + venueCourtId);
-        QueryWrapper<Booking> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("VenueCourtID", venueCourtId);
-        return bookingMapper.selectList(queryWrapper);
+        return bookingMapper.selectByVenueCourtId(venueCourtId);
     }
 
     public Booking addBooking(Booking booking) {

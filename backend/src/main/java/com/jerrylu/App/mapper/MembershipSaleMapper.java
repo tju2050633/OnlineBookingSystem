@@ -12,4 +12,10 @@ import java.util.List;
 public interface MembershipSaleMapper extends BaseMapper<MembershipSale> {
     @Select("SELECT * FROM MembershipSale")
     List<MembershipSale> getAllMembershipSales();
+
+    @Select("SELECT * FROM MembershipSale WHERE membership_id = #{id}")
+    List<MembershipSale> selectByMembershipId(int id);
+
+    @Select("SELECT * FROM MembershipSale WHERE user_id = #{id}")
+    List<MembershipSale> selectByUserId(int id);
 }

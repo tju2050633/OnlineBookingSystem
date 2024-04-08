@@ -12,4 +12,10 @@ import java.util.List;
 public interface EquipmentPurchaseRecordMapper extends BaseMapper<EquipmentPurchaseRecord> {
     @Select("SELECT * FROM EquipmentPurchaseRecord")
     List<EquipmentPurchaseRecord> getAllEquipmentPurchaseRecords();
+
+    @Select("SELECT * FROM EquipmentPurchaseRecord WHERE user_id = #{userId}")
+    List<EquipmentPurchaseRecord> selectByUserId(int userId);
+
+    @Select("SELECT * FROM EquipmentPurchaseRecord WHERE equipment_id = #{equipmentId}")
+    List<EquipmentPurchaseRecord> selectByEquipmentId(int equipmentId);
 }
