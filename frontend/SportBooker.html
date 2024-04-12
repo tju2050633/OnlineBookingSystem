@@ -17,7 +17,12 @@
             <input type="tel" id="Phone" name="Phone">
             <br><br>
 
-        
+            <label for="Member">Gender:</label>
+            <input type="radio" id="Member" name="Member" value="Yes">
+            <label>Yes</label>
+            <input type="radio" id="Member" name="Member" value="No">
+            <label>No</label>
+            <br><br>
 
             <label for="Center">Choose a sport center:</label>
             <select id="Center" name = "Center" onchange="Gofacility()">
@@ -200,6 +205,7 @@
                     return date.toISOString().split("T")[0];
                 }
             </script>
+            <br><br>
 
             <label for = "Time">Choose a time:</label>
             <div id="Time" class="Time" name="Time">
@@ -269,6 +275,16 @@
             <label for="No">No</label>
             <br><br>
             
+            <label for = "Pay">Choose a payment:</label>
+            <input type="radio" id="Pay" name="Pay" value="Cash">
+            <label for="Cash">Cash</label>
+            <input type="radio" id="Pay" name="Pay" value="Alipay">
+            <label for="Alipay">Alipay</label>
+            <input type="radio" id="Pay" name="Pay" value="FPS">
+            <label for="FPS">FPS</label>
+            <input type="radio" id="Pay" name="Pay" value="WeChat Pay">
+            <label for="WeChat Pay">WeChat Pay</label>
+            <br><br>
             
             <input type="submit" value="Submit">
         </form>
