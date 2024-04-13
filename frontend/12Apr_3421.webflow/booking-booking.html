@@ -8,16 +8,21 @@
   <meta content="Booking_Booking" property="twitter:title">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Webflow" name="generator">
+
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/3421.webflow.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+
+  <!-- <script src="booking-booking.js"></script> -->
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
   <script type="text/javascript">WebFont.load({  google: {    families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic","Roboto:300,regular,500"]  }});</script>
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
+
+  
 </head>
 <body>
   <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navigation-bar w-nav">
@@ -39,10 +44,13 @@
   <div class="w-layout-blockcontainer container-_registerform w-container">
     <h1 class="login-head">Facilities Booking</h1>
     <div class="form-block w-form">
-      <form id="wf-form-Facilities-Booking-Form" name="wf-form-Facilities-Booking-Form" data-name="Facilities Booking Form" method="get" class="facilities-booking-form" data-wf-flow="27e0e86d554f0f15ee32f8ca" data-wf-page-id="661141b9a8099b0385e92036" data-wf-element-id="7b1d94d7-75b4-c406-1304-3e81ea9154b9">
+      <form id="wf-form-Facilities-Booking-Form" name="wf-form-Facilities-Booking-Form" data-name="Facilities Booking Form" method="get" class="facilities-booking-form" data-wf-flow="27e0e86d554f0f15ee32f8ca" data-wf-page-id="661141b9a8099b0385e92036" data-wf-element-id="7b1d94d7-75b4-c406-1304-3e81ea9154b9"
+      action="booking-booking.php" method="post">
         <div class="field-row">
-          <div class="field-wrapper first-name-wrapper"><label for="name">Name</label><input class="text-field-2 w-input" maxlength="256" name="name" data-name="Name" placeholder="e.g. Chan Tai Man" type="text" id="name"></div>
-          <div class="field-wrapper"><label for="PhoneNo-2">Phone No. </label><input class="text-field-2 w-input" maxlength="256" name="PhoneNo" data-name="PhoneNo" placeholder="e.g. 98765432" type="tel" id="PhoneNo-2" required=""></div>
+          <div class="field-wrapper first-name-wrapper"><label for="name">Name</label>
+            <input class="text-field-2 w-input" maxlength="256" name="name" data-name="Name" placeholder="e.g. Chan Tai Man" type="text" id="name"></div>
+          <div class="field-wrapper"><label for="PhoneNo-2">Phone No. </label>
+            <input class="text-field-2 w-input" maxlength="256" name="PhoneNo" data-name="PhoneNo" placeholder="e.g. 98765432" type="tel" id="PhoneNo-2" required=""></div>
         </div><label for="email-2">Member </label><label class="w-checkbox checkbox-field-2">
           <div data-w-id="d1408262-6b08-7451-3c92-aae66cb42d6d" class="switch">
             <div class="toggle-container">
@@ -51,7 +59,10 @@
             <div class="s-yes">Yes</div>
             <div class="s-no">no</div>
           </div><input type="checkbox" name="checkbox-4" id="checkbox-4" data-name="Checkbox 4" class="w-checkbox-input checkbox"><span class="checkbox-label w-form-label" for="checkbox-4">Checkbox</span>
-        </label><label for="SC">Choose a sport center</label><select id="SC" name="SC" data-name="SC" required="" class="select-field text-field-2 w-select">
+        
+        <!-- Choose SC -
+        </label><label for="SC">Choose a sport center</label>
+        <select id="SC" name="SC" data-name="SC" required="" class="select-field text-field-2 w-select">
           <option value="">Tin Shui Wai (SC1)</option>
           <option value="First">Kwai Chung (SC2)</option>
           <option value="Second">Chai Wan (SC3)</option>
@@ -69,25 +80,263 @@
           <option value="SC1.2.1">Badminton court 1</option>
           <option value="SC1.2.2">Badminton court 2</option>
         </select>
+      -->
+
+        <!-- Choose SC (outside) -->
+        <label for="Center">Choose a sport center:</label>
+        <select id="Center" name = "Center" onchange="Gofacility()">
+            <option value=""></option>
+            <option value="SC1">SC1</option>
+            <option value="SC2">SC2</option>
+            <option value="SC3">SC3</option>
+            <option value="SC4">SC4</option>
+        </select>
+        <br><br>
+
+        <label for="SC">Choose a facility:</label>
+        <div id="SC" name="Facility" onchange="Govenue()">
+            <select id = "SC1" style="display: none;" name="selectedFacility" onchange="resetf1()">
+                <option value=""></option>
+                <option value="Table tennis table">Table tennis table</option>
+                <option value="Badminton court">Badminton court</option>
+                <option value="Bowling alley">Bowling alley</option>
+                <option value="Pool table">Pool table</option>
+            </select>
+            <select id = "SC2" style="display: none;" name="selectedFacility" onchange="resetf2()">
+                <option value=""></option>
+                <option value="Basketball court">Basketball court</option>
+                <option value="Volleyball court">Volleyball court</option>
+                <option value="Squash court">Squash court</option>
+                <option value="Tennis court"> Tennis court</option>
+            </select>
+            <select id = "SC3" style="display: none;" name="selectedFacility" onchange="resetf3()">
+                <option value=""></option>
+                <option value="Badminton court">Badminton court</option>
+                <option value="Basketball court"> Basketball court</option>
+                <option value="Squash court">Squash court</option>
+                <option value="Tennis court"> Tennis court</option>
+            </select>
+            <select id = "SC4" style="display: none;" name="selectedFacility" onchange="resetf4()">
+                <option value=""></option>
+                <option value="Table tennis table">Table tennis table</option>
+                <option value="Volleyball court">Volleyball court</option>
+                <option value="Bowling alley">Bowling alley</option>
+                <option value="Pool table">Pool table</option>
+            </select>
+        </div>
+        <br>
+
+        <label for = "SC_f">Choose a venue:</label>
+        <div id = "SC_f"  name="Venue">
+            <div id = "SC1_f">
+                <select id = "SC1 Table tennis table" style="display: none;" name="selectedVenue[]" onchange="resetf1_v1()">
+                    <option value=""></option>
+                    <option value="Table tennis table 1">Table tennis table 1</option>
+                    <option value="Table tennis table 2">Table tennis table 2</option>
+                    <option value="Table tennis table 3">Table tennis table 3</option>
+                    <option value="Table tennis table 4">Table tennis table 4</option>
+                </select>
+                <select id = "SC1 Badminton court" style="display: none;" name="selectedVenue[]" onchange="resetf1_v2()">
+                    <option value=""></option>
+                    <option value="Badminton court 1">Badminton court 1</option>
+                    <option value="Badminton court 2">Badminton court 2</option>
+                    <option value="Badminton court 3">Badminton court 3</option>
+                    <option value="Badminton court 4">Badminton court 4</option>
+                </select>
+                <select id = "SC1 Bowling alley" style="display: none;" name="selectedVenue[]" onchange="resetf1_v3()">
+                    <option value=""></option>
+                    <option value="Bowling alley 1">Bowling alley 1</option>
+                    <option value="Bowling alley 2">Bowling alley 2</option>
+                </select>
+                <select id = "SC1 Pool table" style="display: none;" name="selectedVenue[]" onchange="resetf1_v4()">
+                    <option value=""></option>
+                    <option value="Pool table 1">Pool table 1</option>
+                    <option value="Pool table 2">Pool table 2</option>
+                    <option value="Pool table 3">Pool table 3</option>
+                    <option value="Pool table 4">Pool table 4</option>
+                </select>
+            </div>
+            
+            <div id = "SC2_f">
+                <select id = "SC2 Basketball court" style="display: none;" name="selectedVenue[]" onchange="resetf2_v1()">
+                    <option value=""></option>
+                    <option value="Basketball court 1">Basketball court 1</option>
+                    <option value="Basketball court 2">Basketball court 2</option>
+                    <option value="Basketball court 3">Basketball court 3</option>
+                </select>
+                <select id = "SC2 Volleyball court" style="display: none;" name="selectedVenue[]" onchange="resetf2_v2()">
+                    <option value=""></option>
+                    <option value="Volleyball court 1">Volleyball court 1</option>
+                    <option value="Volleyball court 2">Volleyball court 2</option>
+                    <option value="Volleyball court 3">Volleyball court 3</option>
+                    <option value="Volleyball court 4">Volleyball court 4</option>
+                </select>
+                <select id = "SC2 Squash court" style="display: none;" name="selectedVenue[]" onchange="resetf2_v3()">
+                    <option value=""></option>
+                    <option value="Squash court 1">Squash court 1</option>
+                    <option value="Squash court 2">Squash court 2</option>
+                    <option value="Squash court 3">Squash court 3</option>
+                </select>
+                <select id = "SC2 Tennis court" style="display: none;" name="selectedVenue[]" onchange="resetf2_v4()">
+                    <option value=""></option>
+                    <option value="Tennis court 1">Tennis court 1</option>
+                    <option value="Tennis court 2">Tennis court 2</option>
+                    <option value="Tennis court 3">Tennis court 3</option>
+                    <option value="Tennis court 4">Tennis court 4</option>
+                </select>
+            </div>
+
+            <div id = "SC3_f">
+                <select id = "SC3 Badminton court" style="display: none;" name="selectedVenue[]" onchange="resetf3_v1()">
+                    <option value=""></option>
+                    <option value="Badminton court 1">Badminton court 1</option>
+                    <option value="Badminton court 2">Badminton court 2</option>
+                    <option value="Badminton court 3">Badminton court 3</option>
+                    <option value="Badminton court 4">Badminton court 4</option>
+                </select>
+                <select id = "SC3 Basketball court" style="display: none;" name="selectedVenue[]" onchange="resetf3_v2()">
+                    <option value=""></option>
+                    <option value="Basketball court 1">Basketball court 1</option>
+                    <option value="Basketball court 2">Basketball court 2</option>
+                    <option value="Basketball court 3">Basketball court 3</option>
+                </select>
+                <select id = "SC3 Squash court" style="display: none;" name="selectedVenue[]" onchange="resetf3_v3()">
+                    <option value=""></option>
+                    <option value="Squash court 1">Squash court 1</option>
+                    <option value="Squash court 2">Squash court 2</option>
+                    <option value="Squash court 3">Squash court 3</option>
+                    <option value="Squash court 4">Squash court 3</option>
+                </select>
+                <select id = "SC3 Tennis court" style="display: none;" name="selectedVenue[]" onchange="resetf3_v4()">
+                    <option value=""></option>
+                    <option value="Tennis court">Tennis court 1</option>
+                    <option value="Tennis court">Tennis court 2</option>
+                    <option value="Tennis court">Tennis court 3</option>
+                </select>
+            </div>
+
+            <div id = "SC4_f">
+                <select id = "SC4 Table tennis table" style="display: none;" name="selectedVenue[]" onchange="resetf4_v1()">
+                    <option value=""></option>
+                    <option value="Table tennis table 1">Table tennis table 1</option>
+                    <option value="Table tennis table 2">Table tennis table 2</option>
+                    <option value="Table tennis table 3">Table tennis table 3</option>
+                    <option value="Table tennis table 4">Table tennis table 4</option>
+                </select>
+                <select id = "SC4 Volleyball court" style="display: none;" name="selectedVenue[]" onchange="resetf4_v2()">
+                    <option value=""></option>
+                    <option value="Volleyball court 1">Volleyball court 1</option>
+                    <option value="Volleyball court 2">Volleyball court 2</option>
+                    <option value="Volleyball court 3">Volleyball court 3</option>
+                </select>
+                <select id = "SC4 Bowling alley" style="display: none;" name="selectedVenue[]" onchange="resetf4_v3()">
+                    <option value=""></option>
+                    <option value="Bowling alley 1">Bowling alley 1</option>
+                    <option value="Bowling alley 2">Bowling alley 2</option>
+                    <option value="Bowling alley 3">Bowling alley 3</option>
+                </select>
+                <select id = "SC4 Pool table" style="display: none;" name="selectedVenue[]" onchange="resetf4_v4()">
+                    <option value=""></option>
+                    <option value="Pool table 1">Pool table 1</option>
+                    <option value="Pool table 2">Pool table 2</option>
+                    <option value="Pool table 3">Pool table 3</option>
+                    <option value="Pool table 4">Pool table 4</option>
+                </select>
+            </div>
+        </div>
+        <br>
+
+
+
+
+
+
+
+
+
+
+        <!-- Choose date -->
         <div class="field-row">
           <div class="field-wrapper first-name-wrapper"><label for="email-2">Choose a date</label></div>
-          <div class="field-wrapper"><input class="text-field-2" type="date"></div>
+          <div class="field-wrapper"><input class="text-field-2" type="date" id="date-picker" name="Date"></div>
+          <script>
+            const datePicker = document.getElementById("date-picker");
+            datePicker.min = getDate();
+            datePicker.max = getDate(14);
+            function getDate(days) {
+                let date;
+                if (days !== undefined) {
+                    date = new Date(Date.now() + days * 24 * 60 * 60 * 1000);
+                } else {
+                    date = new Date();
+                }
+                const offset = date.getTimezoneOffset();
+                date = new Date(date.getTime() - (offset*60*1000));
+                return date.toISOString().split("T")[0];
+            }
+          </script>
+          <br><br>
+      </div>
+
+
+
         </div><label for="email-2">Choose a time (9:00 - 23:00)</label>
-        <div class="field-row">
-          <article class="field-wrapper"><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">9:00 - 9:30 </span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">11:00 - 11:30 </span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">13:00 - 13:30 </span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">15:00 - 15:30 </span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">17:00 - 17:30 </span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">19:00 - 19:30 </span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">21:00 - 21:30 </span></label></article>
-          <div class="field-wrapper"><label class="w-checkbox checkbox-field for-time text-field-2"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">9:30 - 10:00 </span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">11:30 - 12:00</span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">13:30 - 14:00</span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">15:30 - 16:00</span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">17:30 - 18:00</span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">19:30 - 20:00</span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">21:30 - 22:00</span></label></div>
+        <div id="Time" class="field-row" name="Time">
+          <article class="field-wrapper">
+            <label class="w-checkbox checkbox-field text-field-2 for-time">
+              <input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input">
+              <span class="w-form-label" for="checkbox-2">9:00 - 9:30 </span></label>
+            <label class="w-checkbox checkbox-field text-field-2 for-time">
+              <input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input">
+              <span class="w-form-label" for="checkbox-2">11:00 - 11:30 </span></label>
+            <label class="w-checkbox checkbox-field text-field-2 for-time">
+              <input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input">
+              <span class="w-form-label" for="checkbox-2">13:00 - 13:30 </span></label>
+            <label class="w-checkbox checkbox-field text-field-2 for-time">
+              <input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input">
+              <span class="w-form-label" for="checkbox-2">15:00 - 15:30 </span></label>
+            <label class="w-checkbox checkbox-field text-field-2 for-time">
+              <input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input">
+              <span class="w-form-label" for="checkbox-2">17:00 - 17:30 </span></label>
+            <label class="w-checkbox checkbox-field text-field-2 for-time">
+                <input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input">
+                <span class="w-form-label" for="checkbox-2">19:00 - 19:30 </span></label>
+            <label class="w-checkbox checkbox-field text-field-2 for-time">
+              <input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input">
+              <span class="w-form-label" for="checkbox-2">21:00 - 21:30 </span></label>
+          </article>
+
+          <div class="field-wrapper">
+            <label class="w-checkbox checkbox-field for-time text-field-2">
+              <input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">9:30 - 10:00 </span></label>
+              <label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">11:30 - 12:00</span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">13:30 - 14:00</span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">15:30 - 16:00</span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">17:30 - 18:00</span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">19:30 - 20:00</span></label><label class="w-checkbox checkbox-field text-field-2 for-time">
+                <input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">21:30 - 22:00</span></label></div>
           <div class="field-wrapper"><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">10:00 - 10:30 </span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">12:00 - 12:30 </span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">14:00 - 14:30 </span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">16:00 - 16:30 </span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">18:00 - 18:30 </span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">20:00 - 20:30 </span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">22:00 - 22:30</span></label></div>
           <div class="field-wrapper"><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">10:30 - 11:00 </span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">12:30 - 13:00</span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">14:30 - 15:00</span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">16:30 - 17:00</span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">18:30 - 19:00</span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">20:30 - 21:00</span></label><label class="w-checkbox checkbox-field text-field-2 for-time"><input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" class="w-checkbox-input"><span class="w-form-label" for="checkbox-2">22:30 - 23:00</span></label></div>
-        </div><label for="email-2">Do you need to rent equipment ?</label><label class="w-checkbox checkbox-field-2">
+        
+        </div>
+        
+        <!-- rent equipment (maybe not this function)-->
+        <label for="email-2">Do you need to rent equipment ?</label>
+        <label class="w-checkbox checkbox-field-2">
           <div data-w-id="b70a1dd2-0162-7e9c-53bb-d3214e22540d" class="switch">
             <div class="toggle-container">
               <div class="toggle"></div>
             </div>
             <div class="s-yes">Yes</div>
             <div class="s-no">no</div>
-          </div><input type="checkbox" name="checkbox-4" id="checkbox-4" data-name="Checkbox 4" class="w-checkbox-input checkbox"><span class="checkbox-label w-form-label" for="checkbox-4">Checkbox</span>
-        </label><label class="w-checkbox gdpr-checkbox"><input type="checkbox" name="checkbox-3" id="checkbox-3" data-name="Checkbox 3" required="" class="w-checkbox-input"><span for="checkbox-3" class="terms-text w-form-label"> I agree to the <a href="#" class="login-page-link">Terms</a> and <a href="#" class="login-page-link">Privacy Policy</a></span></label>
-        <div class="logos-wrap">
+          </div>
+          <input type="checkbox" name="checkbox-4" id="checkbox-4" data-name="Checkbox 4" class="w-checkbox-input checkbox">
+          <span class="checkbox-label w-form-label" for="checkbox-4">Checkbox</span>
+        </label>
+        
+        <!--Privacy Policy -->
+        <label class="w-checkbox gdpr-checkbox">
+          <input type="checkbox" name="checkbox-3" id="checkbox-3" data-name="Checkbox 3" required="" class="w-checkbox-input">
+          <span for="checkbox-3" class="terms-text w-form-label"> I agree to the <a href="#" class="login-page-link">Terms</a> and <a href="#" class="login-page-link">Privacy Policy</a></span>
+        </label>
+        
+          <div class="logos-wrap">
           <div class="logo-box"><img src="images/Paypal.svg" alt="" class="payment-logo"></div>
           <div class="logo-box"><img src="images/Mastercard-Clean.svg" alt="" class="payment-logo"></div>
           <div class="logo-box"><img src="images/Maestro-Clean.svg" alt="" class="payment-logo"></div>
