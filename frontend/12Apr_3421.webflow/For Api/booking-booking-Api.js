@@ -38,3 +38,12 @@ document.addEventListener('DOMContentLoaded', function () {
       xhr.send(formData);
     });
   });
+  
+
+////////////////// RegisterForm form ///////////////////
+
+
+
+
+
+
