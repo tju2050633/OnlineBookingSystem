@@ -26,9 +26,7 @@
             if(isset($_POST['Rent_Equipment'])){
                 $Rent_Equipment = $_POST['Rent_Equipment'];
             }
-            if(isset($_POST['Pay'])){
-                $Pay = $_POST['Pay'];
-            }
+    
 
             echo '<p>Booking processed at ';
             echo date('Y-m-d h:i:sa');
