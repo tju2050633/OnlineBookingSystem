@@ -158,6 +158,15 @@
             echo '<p>Note:</p>';
             echo '<p>Rent needs to be paid when picking up the equipment at the sports center.</p>';
             echo '<p>You will need to pay an additional $100 cash deposit to rent the items</p>';
+            $outputstring = $today."\t Name: ". $name. "\t Phone: " . $PhoneNo . "\t Center: " . $Center  ."\t Venues: ".$V ."\t Date: " . $Date . "\t Times: " . $Time . "\t Pay: " . $Pay ."\n";
+            @ $fp = fopen("../php/booking-booking.txt", 'ab');
+            if (!$fp){
+                echo '<p><strong> Your booking could not be processed at this time.  '
+                .'Please try again later.</strong></p></body></html>';
+                exit;} 
+            fwrite($fp, $outputstring, strlen($outputstring)); 
+            fclose($fp);
+            echo '<p>Order has been saved.</p>'; 
         ?>
         <input type="submit" value="Confirm">
     </body>
