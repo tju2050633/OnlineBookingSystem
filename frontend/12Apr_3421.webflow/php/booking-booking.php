@@ -49,19 +49,6 @@
             
 
             echo '<br><br>';
-            echo "Facility: ";
-            if(isset($_POST['selectedFacility'])){
-                $selectedFacility = $_POST['selectedFacility'];
-                foreach ($selectedFacility as $Facility) {
-                    if (!empty($Facility)) {
-                        $F = $Facility;
-                        echo $Facility;
-                        break;
-                    }
-                }
-            }
-
-            echo '<br><br>';
             echo "Venue: ";
             if(isset($_POST['selectedVenue'])){
                 $selectedVenue = $_POST['selectedVenue'];
@@ -185,7 +172,6 @@
             "\t Phone: " . $PhoneNo .
             "\t Member: " . $Member .
             "\t Center: " . $Center  .
-            "\t Facility: ".$F .
             "\t Venues: ".$V .
             "\t Date: " . $Date . 
             "\t Times: " . $Time  ;
