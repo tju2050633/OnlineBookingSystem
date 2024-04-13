@@ -1,4 +1,4 @@
-userBaseUrl = "http://10.12.13.162:8080/api/user/"
+userBaseUrl = "http://34.92.41.227:8080/api/user/"
 
 function getAllUsers() {
     console.log(userBaseUrl);

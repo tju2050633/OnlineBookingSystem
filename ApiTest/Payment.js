@@ -1,4 +1,4 @@
-paymentBaseUrl = "http://10.12.13.162:8080/api/payment/"
+paymentBaseUrl = "http://34.92.41.227:8080/api/payment/"
 
 function getAllPayments() {
     return $.ajax({

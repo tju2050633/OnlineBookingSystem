@@ -1,4 +1,4 @@
-equipmentBaseUrl = "http://10.12.13.162:8080/api/equipment/"
+equipmentBaseUrl = "http://34.92.41.227:8080/api/equipment/"
 
 function getAllEquipmentRentals() {
     return $.ajax({
