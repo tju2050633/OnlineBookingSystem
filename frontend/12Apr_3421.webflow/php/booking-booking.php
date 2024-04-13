@@ -11,11 +11,17 @@
             if(isset($_POST['PhoneNo'])){
                 $PhoneNo = $_POST['PhoneNo'];
             }
-            if(isset($_POST['checkbox-4'])){
-                $checkbox4 = $_POST['checkbox-4'];
+            if(isset($_POST['Member'])){
+                $Member = $_POST['Member'];
             }
             if(isset($_POST['Center'])){
                 $Center = $_POST['Center'];
+            }
+            if(isset($_POST['Facility'])){
+                $Facility = $_POST['Facility'];
+            }
+            if(isset($_POST['Venue'])){
+                $Venue = $_POST['Venue'];
             }
             if(isset($_POST['Date'])){
                 $Date = $_POST["Date"];
@@ -29,7 +35,8 @@
     
 
             echo '<p>Booking processed at ';
-            echo date('Y-m-d h:i:sa');
+            $today = date('H:i d/m/y');
+            echo $today;
             '<br>';
             echo '<p>Your booking details are as follows: </p>';
             '<br>';
@@ -38,19 +45,38 @@
             echo "Phone: " . $PhoneNo;
             echo '<br><br>';
             echo "Center: " . $Center;
+           
+            
+
+            echo '<br><br>';
+            echo "Facility: ";
+            if(isset($_POST['selectedFacility'])){
+                $selectedFacility = $_POST['selectedFacility'];
+                foreach ($selectedFacility as $Facility) {
+                    if (!empty($Facility)) {
+                        $F = $Facility;
+                        echo $Facility;
+                        break;
+                    }
+                }
+            }
+
             echo '<br><br>';
             echo "Venue: ";
             if(isset($_POST['selectedVenue'])){
                 $selectedVenue = $_POST['selectedVenue'];
                 foreach ($selectedVenue as $Venue) {
                     if (!empty($Venue)) {
+                        $V = $Venue;
                         echo $Venue;
                         break;
                     }
                 }
             }
+
             echo '<br><br>';
             echo "Date: " . $Date;
+
             echo '<br><br>';
             echo "Time: ";
             echo '<br>';
@@ -60,8 +86,6 @@
                     echo $Time . "<br>";
                 }
             };
-            echo '<br>';
-            echo "Pay: " . $Pay;
             '<br><br>';
 
             $Table_tennis_table_weekday=3.5;
@@ -156,8 +180,17 @@
             echo '<p>Note:</p>';
             echo '<p>Rent needs to be paid when picking up the equipment at the sports center.</p>';
             echo '<p>You will need to pay an additional $100 cash deposit to rent the items</p>';
-            $outputstring = $today."\t Name: ". $name. "\t Phone: " . $PhoneNo . "\t Center: " . $Center  ."\t Venues: ".$V ."\t Date: " . $Date . "\t Times: " . $Time . "\t Pay: " . $Pay ."\n";
-            @ $fp = fopen("../php/booking-booking.txt", 'ab');
+            $outputstring = $today.
+            "\t Name: ". $name. 
+            "\t Phone: " . $PhoneNo .
+            "\t Member: " . $Member .
+            "\t Center: " . $Center  .
+            "\t Facility: ".$F .
+            "\t Venues: ".$V .
+            "\t Date: " . $Date . 
+            "\t Times: " . $Time  ;
+
+            @ $fp = fopen("../txt/booking-booking.txt", 'ab');
             if (!$fp){
                 echo '<p><strong> Your booking could not be processed at this time.  '
                 .'Please try again later.</strong></p></body></html>';
