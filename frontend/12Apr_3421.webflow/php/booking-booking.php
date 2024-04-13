@@ -174,7 +174,8 @@
             "\t Center: " . $Center  .
             "\t Venues: ".$V .
             "\t Date: " . $Date . 
-            "\t Times: " . $Time  ;
+            "\t Times: " . $Time .
+            "\n"  ;
 
             @ $fp = fopen("../txt/booking-booking.txt", 'ab');
             if (!$fp){
