@@ -49,7 +49,7 @@
     <div class="form-block w-form">
       
     <!-- test     action="php/booking-booking.php" method="post"-->
-    <form id= "myForm" >
+    <form action="php/booking-booking.php" method="post">
       
 
       <!-- id: name    PhoneNo -->
@@ -426,30 +426,6 @@
       <a href="booking.html" class="button-back-to-home w-button">Back</a>
       
     </form>
-
-    <script>
-      $(document).ready(function() {
-        $('#myForm').submit(function(e) {
-          e.preventDefault(); // 阻止表單提交的默認行為
-  
-          var formData = $(this).serialize(); // 序列化表單數據
-  
-          $.ajax({
-            url: 'http://34.92.41.227:8080/api/booking-booking',
-            type: 'POST',
-            data: formData,
-            success: function(response) {
-              // 在請求成功時執行的代碼
-              console.log(response);
-            },
-            error: function(xhr, status, error) {
-              // 在請求失敗時執行的代碼
-              console.log(error);
-            }
-          });
-        });
-      });
-    </script>
 
 
       <div class="success-message w-form-done">
