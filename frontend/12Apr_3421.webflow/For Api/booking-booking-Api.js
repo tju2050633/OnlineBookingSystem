@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
       // Send AJAX request to the API
       var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'http://34.92.41.227:8080/api/booking-booking', true);
+      xhr.open('POST', 'http://34.92.41.227:8080/api/booking/', true);
       xhr.onload = function () {
         // Handle the response from the API
         if (xhr.status >= 200 && xhr.status < 400) {
