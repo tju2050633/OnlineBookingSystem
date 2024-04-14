@@ -25,7 +25,7 @@ function submitForm(event) {
 //     "dateRegistered": "2023-05-08"
 // };
 
-object['MemberName'] = 'Chan Tai'
+object['name'] = 'Chan Tai'
 object['gender'] = 'Female';
 object['email'] = '666@example.com';
 object['password'] = "password";  
