@@ -3,20 +3,32 @@ const userBaseUrl = "http://34.92.41.227:8080/api/user/";
 function submitForm(event) {
     event.preventDefault(); // Prevent default form submission
   
-    var formData = new FormData($("#myForm")[0]);
+
+  var formElement = $("#myForm")[0];
+  var formData = new FormData(formElement);
+
+  var object = {};
+  formData.forEach(function(value, key){
+      object[key] = value;
+  });
+  var json = JSON.stringify(object);
+  
+  console.log("formData", json);
   
     return $.ajax({
       url: userBaseUrl + "add",
       type: "POST",
-      data: formData,
+      data: json,
       processData: false,
       contentType: "application/json",
       success: function(response) {
         getAllUsers();
+        console.log("SSSSSSSSSSSSSS")
         $("#myForm")[0].reset(); // Reset the form after successful submission
       },
       error: function(xhr, status, error) {
         console.error("Error:", error);
+        console.log("EEEEEEEEEEEEE")
       }
     });
   }
