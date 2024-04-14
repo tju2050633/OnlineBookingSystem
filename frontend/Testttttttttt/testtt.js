@@ -11,6 +11,29 @@ function submitForm(event) {
   formData.forEach(function(value, key){
       object[key] = value;
   });
+//   var user = {
+//     "userId": 6,
+//     "membershipId": 2,
+//     "name": "Jane Smith",
+//     "password": "janepassword",
+//     "gender": "Female",
+//     "email": "jane.smith@example.com",
+//     "phoneNumber": "87654321",
+//     "hkid": "B2345679",
+//     "birthday": "1990-02-02",
+//     "address": "456 Secondary St",
+//     "dateRegistered": "2023-05-08"
+// };
+
+  object['userId'] = 10;
+  object['membershipId'] = 2;
+  object['password'] = "password";
+  object['gender'] = 'Female';
+  object['email'] = '666@example.com';
+  object['hkid'] = 'B1234567';
+  object['birthday'] = '1990-02-02';
+  object['address'] = '123 Main St';
+  object['dateRegistered'] = '2023-05-08';
   var json = JSON.stringify(object);
   
   console.log("formData", json);
